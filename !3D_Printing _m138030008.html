@@ -1,0 +1,572 @@
+<!3D_Printing html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D列印</title>
+    <style>
+        /* CSS 样式 */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: left; 
+            margin: 20px;
+        }
+        #pageintro {
+            text-align: center; /* 置中內容 */
+        }
+        #pageend {
+            text-align: center; /* 置中內容 */
+        }
+        /* 按鈕 */
+        .button-all {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #49bcd7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 17px;
+            text-decoration: none;
+        }
+        .button-all:hover {
+            background-color: #ffe7d8;
+        }
+        .button-lil {
+            padding: 5px 10px;
+            background-color: #49bcd7;
+            color: white;
+            border: none;
+            border-radius: 5px; 
+            font-size: 12px;
+            cursor: pointer; /* 鼠標變為指針 */
+        }
+        
+        .button-lil:hover {
+            background-color: #ffe7d8;
+        }
+
+        /* 文字連結 */
+        .link {
+            color: #49bcd7; /* 設定連結的文字顏色 */
+            text-decoration: underline; /* 加下劃線 */
+            cursor: pointer; /* 游標指針 */
+        }
+
+        .link:hover {
+            color: #ffe7d8; /* 懸停時顏色變化 */
+        }
+        .link-n {
+            color: #49bcd7; /* 設定連結的文字顏色 */
+            cursor: pointer; /* 游標指針 */
+        }
+
+        .link-n:hover {
+            color: #ffe7d8; /* 懸停時顏色變化 */
+        }
+        /* 表格 */
+        table {
+          border: 0.5px solid #000; /* 外框邊界 */
+          border-collapse: collapse; /* 邊界合併，避免雙線 */
+          width: 100%; /* 可選：設定表格寬度 */
+         }
+        td {
+           border: 1px solid #000; /* 儲存格邊界 */
+           padding: 10px; /* 儲存格內部間距 */
+           text-align: center; /* 可選：文字置中 */
+           }
+        /* Page */
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        input[type="radio"] {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<!-- 頁面內容 -->
+<!-- 第一頁 課程名稱和自我介紹 -->
+
+<div id="pageintro" class="page active">
+    <h2>113學年3D列印應用實作-期中報告</h2>
+<pre style="font-size: 18px; ">
+NSYSU醫學科技研究所
+M138030008蔡汶瑾
+</pre>
+    <button class="button-all" onclick="showPage('page0')">繼續</button>
+</div>
+
+<!-- 第0頁 嗨你好我是目錄的啦 -->
+<div id="page0" class="page">
+  <h2>>>>3D列印-目錄</h2>
+    <h3 style="color: rgb(10, 131, 200);"><span class="link-n" onclick="showPage('page1')">一、3D列印簡介</span> 
+    </h3>
+    <pre>
+    </pre>
+    <h3 style="color: rgb(10, 131, 200);"><span class="link-n" onclick="showPage('page2')">二、普遍3D列印的材料與應用</span> 
+    </h3>
+    <pre>
+    </pre>
+    <h3 style="color: rgb(10, 131, 200);"><span class="link-n" onclick="showPage('page3')">三、醫學3D列印的材料與應用</span> 
+    </h3>
+    <pre>
+    </pre>
+    <h3 style="color: rgb(10, 131, 200);"><span class="link-n" onclick="showPage('page4')">四、3D列印機</span> 
+    </h3>
+    <pre>
+    </pre>
+    <button class="button-lil" onclick="showPage('pageintro')" >返回</button>
+    <button class="button-lil" onclick="showPage('pageend')" >結束</button>
+
+</div>
+
+
+
+<!-- Page1 第一區塊 3D列印簡介 -->
+<div id="page1" class="page">
+    <h2>>>>3D列印簡介</h2>
+<pre style="font-size: 15px;">
+<h3 style="color: rgb(10, 131, 200); font-size: 18px;">什麼是3D列印？</h3>
+3D列印（3D printing），又稱立體列印、增材製造、積層製造等等...
+是由電腦控制去層層累加材料的一個製程
+3D列印可以分為三個流程，分別是：1.建模 2.列印 3.加工處理
+建模通常是使用電腦的繪圖軟體進行繪圖，現在也有掃描的方式來建模
+列印就是將建好的模型檔案轉換成一系列薄層一一印出
+加工處理就是將印好的模型做其他需求上的處理
+
+<h3 style="color: rgb(10, 131, 200);font-size: 18px;">為什麼要使用3D列印？它的優勢在哪裡呢？</h3>
+3D列印可以說是一個跨時代的製程方式，以往製程都是由減法做處理，而它是加法處理；
+很難理解的話，讓我們想像一下...
+想像你是文藝復興的米開朗基羅，今天要雕刻一座雄偉的大衛像，要怎麼做呢？
+首先你得得到比大衛像更大體積的大理石，接著切成大略的形狀，再慢慢地雕琢、將不需要的部份給一一去除...
+這就是所謂的減法處理，然而，這樣產生了幾個問題：
+1.浪費許多的材料，如果今天是比大理石更昂貴的材料，那就會提高了材料成本
+2.製作的時間，從一塊巨大的不規則石頭慢慢刻出人形，需要花費非常多的時間，以及之間的調整
+3.如果今天你的客戶想要看小樣品再決定用什麼材料，上述的材料成本+製作時間都會翻倍
+
+3D列印完全可以解決這個問題！
+由於3D列印是加法製程，你能想像若米開朗基羅有一罐可以擠出大理石的機器，並且擠出的當下大理石就成形了
+且這個機器非常的細緻，擠出口可以是非常細小的點，米開朗基羅就可以在憑空中慢慢建立大衛像的樣子
+當然這只是個比喻，模型一開始就早已建立好，你不需要慢慢揣測以及製作
+但從上述的比喻，你一定會發現，材料幾乎不會被浪費掉、且製作的時間也更快了
+若今天客戶需要小樣品來評估，你也只需要將建立好的模型縮小按下印出鍵
+
+這就是為什麼現今3D列印逐漸成為主流的原因。
+延伸閱讀：
+<a class="link" href="https://toseyinnovation.com/3d-printing/3d-printing/" target="_blank">3D列印可以做什麼？認識3D列印機應用、原理和常見技術</a>
+<a class="link" href="https://ping3dp.com/3d%E5%88%97%E5%8D%B0%E7%A9%B6%E7%AB%9F%E5%9C%A8%E8%A7%A3%E6%B1%BA%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C%E5%8F%8A%E9%9C%80%E6%B1%82%E7%82%BA%E4%BD%95/" target="_blank">3D列印究竟在解決什麼問題及需求為何?</a>
+<a class="link" href="https://www.kidendesign.com/1090212-news" target="_blank">你應該選擇3D列印的四大理由</a>
+</pre>
+<button class="button-lil" onclick="showPage('page0')" >返回目錄頁</button>
+<button class="button-lil" onclick="showPage('pageend')" >結束</button>
+</div>
+
+
+
+<!-- Page2 第二區塊 普遍3D列印的材料與應用 -->
+<div id="page2" class="page">
+      <h2>>>>普遍3D列印的材料與應用</h2>
+      <!--表格-->
+      <table> 
+        <tr>
+          <td style="width: 100px;background:rgb(202, 220, 240);"> 編號</td>
+          <td style="width: 200px;background:rgb(202, 220, 240);">材料名稱</td>
+          <td style="width: 1000px;background:rgb(202, 220, 240);">組成</td>
+          <td style="width: 600px;background:rgb(202, 220, 240);">優點</td>
+          <td style="width: 600px;background:rgb(202, 220, 240);">缺點</td>
+          <td style="width: 600px;background:rgb(202, 220, 240);">應用</td>
+        </tr>
+        <tr>
+          <td colspan=6; style="background:rgb(207, 207, 209);">塑膠類材料 (Polymers)</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><a class="link" href="https://3dmart.com.tw/news/figure-out-of-pla-3d-printing-materials" target="_blank">PLA</a>
+                <br><span style="font-size: 12px;">(Polylactic Acid)</span></td>
+            <td>從玉米澱粉或甘蔗等天然材料提煉的乳酸聚合物</td>
+            <td>有強度(30–70 MPa)、易於加工、打印方便、無毒無氣味、生物可降解</td>
+            <td>耐熱低(50–60°C)、易變形、易脆</td>
+            <td>環境友善食品包裝、3D列印模型</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><a class="link" href="https://3dlabstore.com.hk/blog/3d-printing-guide/abs-material-3d-printing-principles" target="_blank">ABS</a>
+                <br><span style="font-size: 12px;">(Acrylonitrile Butadiene Styrene)</span></td>
+            <td>丙烯腈、丁二烯和苯乙烯組成的共聚物</td>
+            <td>高強度(40–60 MPa)、結構穩定、耐熱(90–100°C)、耐衝擊</td>
+            <td>容易翹曲、產生氣味</td>
+            <td>適合耐用產品：汽車零件、玩具、電子產品外殼</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><a class="link" href="https://www.botfeeder.com.tw/petg.htm" target="_blank">PETG</a>
+                <br><span style="font-size: 12px;">(Polyethylene Terephthalate Glycol)</span></td>
+            <td>PET（聚對苯二甲酸乙二醇酯）加入乙二醇</td>
+            <td>透明度高、耐水、強韌(50–60 MPa)、不易變形、抗化學性</td>
+            <td>易受高溫影響(耐熱70–80°C)、些微吸水性</td>
+            <td>可應用於食品包裝、水瓶、模型</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><a class="link" href="https://diman.tw/news-Detail/3d-printing-tpu-all-you-need-to-know" target="_blank">TPU</a>
+                <br><span style="font-size: 12px;">(Thermoplastic Polyurethane)</span></td>
+            <td>熱塑性聚氨酯</td>
+            <td>柔韌性強(25–55 MPa)，具有彈性，耐磨，耐油，耐熱(80–95°C)</td>
+            <td>列印速度較慢，設置複雜、耐熱性有限</td>
+            <td>適合耐彎折的零件、鞋底、手機殼、工業零件</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td><a class="link" href="https://diman.tw/news-Detail/nylon-3d-printing-how-to-get-nylon-3d-printed" target="_blank">Nylon</a>
+                <br><span style="font-size: 12px;">(Polyamide)</span></td>
+            <td>聚酰胺塑料</td>
+            <td>高強度(50–90 MPa)，高彈性，耐熱(120–150°C)，耐磨損</td>
+            <td>吸濕性強、容易翹曲</td>
+            <td>齒輪、機械零件、耐用工具</td>
+        </tr>
+        <tr>
+            <td colspan=6; style="background:rgb(207, 207, 209);">樹脂 (Resin)</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><a class="link" href="https://3dlabstore.com.hk/blog/3d-printing-material/what-is-resin-and-why-resin" target="_blank">標準光敏樹脂</a>
+                <br><span style="font-size: 12px;">(Standard Photopolymer Resin)</span></td>
+            <td>單體和低聚物組成，並含有光引發劑，在紫外光（UV）或特定波長的光照下固化</td>
+            <td>成型精度高、固化速度快、成本低、表面光滑、高分辨率</td>
+            <td>較脆、耐熱性較差(45–60°C)</td>
+            <td>展示模型、短期裝飾品</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>高強度樹脂<br><span style="font-size: 12px;">(Tough Resin)</span></td>
+            <td>標準樹脂的基礎上添加了高分子量的聚合物和改性單體增加韌性和抗衝擊性</td>
+            <td>耐用性高、抗彎曲和抗斷裂性、韌性和耐衝擊性較高</td>
+            <td>耐熱性普通(65–75°C)、表面質感略差、成本高</td>
+            <td>工業夾具、功能性原型</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><a class="link" href="https://www.taiwanteama.com.tw/data-32633" target="_blank">生物相容性樹脂</a>
+                <br><span style="font-size: 12px;">(Biocompatible Resin)</span></td>
+            <td>符合ISO生物相容性標準的丙烯酸酯或環氧基單體及低聚物組成</td>
+            <td>生物相容性、尺寸精度高、表面光滑、醫療級質量要求</td>
+            <td>成本非常高、使用範圍受限、有效期限短</td>
+            <td>牙科模具、醫療設備、短期皮膚接觸</td>
+        </tr>
+        <tr>
+            <td colspan=6; style="background:rgb(207, 207, 209);">金屬材料 (Metals)</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>不銹鋼<br><span style="font-size: 12px;">(Stainless Steel)</span></td>
+          <td>主要由鐵、鉻 (Cr) 組成，部分還含鎳 (Ni) 及鉬 (Mo) 增強耐腐蝕性</td>
+          <td>耐熱(600–800°C)、耐腐蝕、高強度、耐磨耐用、焊接性良好、易清潔</td>
+          <td>重且密度高(7.8 g/cm³)、成本高、導熱差</td>
+          <td>醫療設備、廚具、管道系統、汽車和航空零件</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td><a class="link" href="https://diman.tw/news-Detail/3d-printing-titanium-method-1" target="_blank">鈦合金</a>
+            <br><span style="font-size: 12px;">(Titanium)</span></td>
+          <td>以鈦 (Ti) 為主要成分，加入鋁 (Al)、釩 (V) 等元素</td>
+          <td>重量輕但堅固，密度約4.5 g/cm³，耐腐蝕性、抗疲勞性、生物相容性高、耐高溫(300–600°C)</td>
+          <td>加工困難，製造成本高、導熱性較差、焊接難度高</td>
+          <td>航空航天零件、醫療植體、汽車或軍事裝備</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>鋁<br><span style="font-size: 12px;">(Aluminum)</span></td>
+          <td>純鋁或鋁合金(添加銅、鎂、矽等元素)</td>
+          <td>密度低（2.7 g/cm³）、輕量化、易加工、導熱性良好、抗腐蝕性</td>
+          <td>強度、耐磨、耐熱(150–300°C)皆不如鋼、焊接時易氧化</td>
+          <td>建築、汽車零件、電子設備、飲料罐</td>
+      </tr>
+        <td colspan=6; style="background:rgb(207, 207, 209);">複合材料 (Composites)</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><a class="link" href="https://lazybone1960.pixnet.net/blog/post/338138705" target="_blank">CFRP碳纖維強化塑膠</a>
+                <br><span style="font-size: 12px;">(Carbon Fiber Reinforced Polymer)</span></td>
+            <td>由基體材料（如環氧樹脂、尼龍、ABS等）混合碳纖維</td>
+            <td>重量輕且剛性強，熱膨脹係數低、在溫度變化下尺寸穩定，抗腐蝕性強，抗疲勞性佳</td>
+            <td>成本高、易脆、不易回收、導電過強</td>
+            <td>醫療設備、機械臂等等工業設備</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>木纖維PLA<br><span style="font-size: 12px;">(Wood Fiber PLA)</span></td>
+            <td>LA樹脂基體中混入天然木纖維</td>
+            <td>易於加工、可生物降解、無氣味</td>
+            <td>耐熱性和抗拉強度低、易吸水、易磨損</td>
+            <td>家居裝飾、模型製作、展示品</td>
+        </tr>
+
+      </table>
+      <button class="button-lil" onclick="showPage('page0')" >返回目錄頁</button>
+      <button class="button-lil" onclick="showPage('pageend')" >結束</button>
+</div>
+
+
+
+
+<!-- Page3 第三區塊 醫學3D列印的材料與應用 -->
+<div id="page3" class="page">
+    <h2>>>>醫學3D列印的材料與應用</h2>
+    <!--表格-->
+    <table> 
+      <tr>
+        <td style="width: 100px;background:rgb(202, 220, 240);"> 編號</td>
+        <td style="width: 200px;background:rgb(202, 220, 240);">材料名稱</td>
+        <td style="width: 1000px;background:rgb(202, 220, 240);">組成</td>
+        <td style="width: 600px;background:rgb(202, 220, 240);">優點</td>
+        <td style="width: 600px;background:rgb(202, 220, 240);">缺點</td>
+        <td style="width: 600px;background:rgb(202, 220, 240);">醫療應用</td>
+      </tr>
+      <tr>
+        <td colspan=6; style="background:rgb(207, 207, 209);">生物材料 (Biomaterials)</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td><a class="link" href="https://www.nu-vendome.com/doctor/article/503" target="_blank">PCL</a>
+            <br><span style="font-size: 12px;">(Polycaprolactone)</span></td>
+          <td>聚酯類聚合物</td>
+          <td>生物相容性好、生物可降解、易加工</td>
+          <td>強度較低、降解時間較長(數月至數年)</td>
+          <td>組織支架、骨骼修復</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td><a class="link" href="https://kknews.cc/zh-tw/news/36vjz9g.html" target="_blank">PLA & PLGA</a>
+            <br><span style="font-size: 12px;">(Polylactic-co-glycolic acid)</span></td>
+          <td>PLA由乳酸聚合而成，PLGA是乳酸和乙醇酸的共聚物</td>
+          <td>生物相容性高、無毒性、可以調整降解速率</td>
+          <td>強度較低、導致局部酸性環境的可能性</td>
+          <td>可降解縫線、藥物遞送系統</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td><a class="link" href="https://www.technice.com.tw/uncategorized/34040/" target="_blank">水凝膠</a>
+            <br><span style="font-size: 12px;">(Hydrogels)</span></td>
+          <td>聚乙烯醇（PVA）、聚丙烯酸（PAA）等等混入大量水</td>
+          <td>良好的生物相容性、促進細胞生長、高水分含量、柔軟(質地類似生物組織)</td>
+          <td>強度較低、容易變形、乾燥環境中不穩定</td>
+          <td>細胞支架、關節軟骨、製作人工皮膚</td>
+      </tr>
+      <tr>
+          <td colspan=6; style="background:rgb(207, 207, 209);">醫療用塑膠材料</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td><a class="link" href="https://www.future3d.com.tw/blog/peek_3d_printing" target="_blank">PEEK</a>
+            <br><span style="font-size: 12px;">(Polyether Ether Ketone)</span></td>
+          <td>聚醚醚酮</td>
+          <td>高強度(100–200 MPa)、耐高溫(~260°C)、生物相容性、耐磨性、化學穩定性</td>
+          <td>成本較高、不易加工難以成型</td>
+          <td>脊椎植入物</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td><a class="link" href="https://diman.tw/news-Detail/3d-printing-tpu-all-you-need-to-know" target="_blank">TPU</a>
+            <br><span style="font-size: 12px;">(生物相容性熱塑性聚氨酯)</span></td>
+          <td>聚氨酯聚合物</td>
+          <td>可塑性強、生物相容性高</td>
+          <td>長期使用導致老化、成本高於一般塑材</td>
+          <td>個人化支架、護具</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td><a class="link" href="https://www.ansys.com/zh-tw/blog/what-is-pmma-how-it-is-used-healthcare" target="_blank">PMMA</a>
+            <br><span style="font-size: 12px;">(Polymethyl Methacrylate)</span></td>
+          <td>聚甲基丙烯酸甲酯、透明塑料材料</td>
+          <td>高透明度、耐熱(~100°C)、抗拉強度(70–100 MPa)、易於加工</td>
+          <td>耐磨性差、高溫下易變形</td>
+          <td>牙齒假體、眼科透鏡</td>
+      </tr>
+      <tr>
+          <td colspan=6; style="background:rgb(207, 207, 209);">金屬材料 (Metals)</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>不銹鋼<br><span style="font-size: 12px;">(Stainless Steel)</span></td>
+          <td>主要由鐵、鉻 (Cr) 組成，部分還含鎳 (Ni) 及鉬 (Mo) 增強耐腐蝕性</td>
+          <td>耐熱(600–800°C)、耐腐蝕、高強度、耐磨耐用、焊接性良好、易清潔</td>
+          <td>重且密度高(7.8 g/cm³)、成本高、導熱差</td>
+          <td>手術器具、固定裝置</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td><a class="link" href="http://www.ly-metal.com/c_html_news/development-and-application-of-biomedical-titanium-metal-materials-70.html" target="_blank">鈦合金</a>
+            <br><span style="font-size: 12px;">(Titanium)</span></td>
+          <td>以鈦 (Ti) 為主要成分，加入鋁 (Al)、釩 (V) 等元素</td>
+          <td>重量輕但堅固，密度約4.5 g/cm³，耐腐蝕性、抗疲勞性、生物相容性高、耐高溫(300–600°C)</td>
+          <td>加工困難，製造成本高、導熱性較差、焊接難度高</td>
+          <td>人工髖關節、牙科植入物、骨板和螺釘</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td><a class="link" href="https://youtu.be/UcE9oUsQVno?si=DTl5OsOnm7XDpgUX" target="_blank">鈷鉻合金</a>
+            <br><span style="font-size: 12px;">(Aluminum)</span></td>
+          <td>鈷和鉻合金(添加鎳等等合金元素)</td>
+          <td>耐磨性和強度高(600–900 MPa)、耐腐蝕性極佳、生物相容性強</td>
+          <td>加工難度大，製造成本高</td>
+          <td>牙齒冠套、髖關節植入物</td>
+      </tr>
+      <td colspan=6; style="background:rgb(207, 207, 209);">生物墨水 (Bio-ink)</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td><a class="link" href="https://www.scimonth.com.tw/archives/4079" target="_blank">生物墨水</a>
+            <br><span style="font-size: 12px;">(Bio-ink)</span></td>
+          <td>含有活細胞、聚合物（水凝膠如PVA、Gelatin等）</td>
+          <td>生物相容性(可與活細胞兼容)、能夠支持細胞生長、可用於多種組織的打印</td>
+          <td>技術要求高，打印過程複雜</td>
+          <td>3D列印器官組織(血管、皮膚、腎臟、小肝臟、心臟組織)</td>
+      </tr>
+
+
+    </table>
+    <button class="button-lil" onclick="showPage('page0')" >返回目錄頁</button>
+    <button class="button-lil" onclick="showPage('pageend')" >結束</button>
+</div>
+
+<!-- Page4 第四區塊 3D列印機 -->
+<div id="page4" class="page">
+    <h2>>>>3D列印機</h2>
+    <!--表格-->
+    <table> 
+      <tr>
+        <td style="width: 100px;background:rgb(202, 220, 240);"> 編號</td>
+        <td style="width: 200px;background:rgb(202, 220, 240);">機器名稱</td>
+        <td style="width: 1000px;background:rgb(202, 220, 240);">列印方式</td>
+        <td style="width: 600px;background:rgb(202, 220, 240);">使用材料</td>
+        <td style="width: 600px;background:rgb(202, 220, 240);">優點</td>
+        <td style="width: 600px;background:rgb(202, 220, 240);">缺點</td>
+        <td style="width: 600px;background:rgb(202, 220, 240);">常見應用</td>
+      </tr>
+      <!--一般3D列印機-->
+      <tr>
+        <td colspan=7; style="background:rgb(207, 207, 209);">一般3D印表機</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td><a class="link" href="https://youtube.com/shorts/UuC2RvI3xtA?si=vYrqGTM-YLkGdN3M" target="_blank">FDM / FFF列印機</a>
+            <br><span style="font-size: 12px;">(Fused Deposition Modeling / Fused Filament Fabrication)</span></td>
+          <td>熔融塑膠線材，層層堆疊出模型</td>
+          <td>PLA、ABS、PETG、TPU、尼龍</td>
+          <td>成本較低、可列印大尺寸、易操作適合初學者</td>
+          <td>列印精度不如SLA和SLS、表面較粗糙、越大列印速度較慢</td>
+          <td>消費品、玩具模型</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td><a class="link" href="https://youtu.be/V0YIsh1d4v4?si=bttOmUWzFtIg9740" target="_blank">SLA列印機</a>
+            <br><span style="font-size: 12px;">(Stereolithography)</span></td>
+            <td>使用雷射或UV光固化光敏樹脂層層成型</td>
+            <td>標準樹脂、生物相容性樹脂、高強度樹脂</td>
+            <td>精度高、表面光滑、支持生物相容性</td>
+            <td>材料成本高、越精密列印速度慢、列印後需另外處理(固化、清洗)</td>
+            <td>牙科模型、工業設計模型、醫學模型、精密零件</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td><a class="link" href="https://youtu.be/CI_KtLuMUiA?si=8bdGvr9cHwjG7Uxj" target="_blank">SLS列印機</a>
+            <br><span style="font-size: 12px;">(Selective Laser Sintering)</span></td>
+            <td>使用雷射燒結粉末材料，如尼龍或玻璃纖維粉末</td>
+            <td>尼龍、TPU、玻璃纖維</td>
+            <td>可製作複雜結構、工業及應用可批量、產物具良好機械性能</td>
+            <td>貴、列印過程產生粉塵、粉塵需要回收處理</td>
+            <td>工業零件</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td><a class="link" href="https://youtu.be/8mkceTDxycA?si=du5aO9teSVHoJDAa" target="_blank">金屬3D列印機</a>
+            <br><span style="font-size: 12px;">(Metal 3D Printers)</span></td>
+            <td>1.DMLS (Direct Metal Laser Sintering)：<br>用雷射將金屬粉末局部燒結（使其顆粒融合但不完全熔化），逐層堆疊形成零件。
+                <br>2.SLM (Selective Laser Melting)：<br>使用雷射將金屬粉末完全熔化，再冷卻凝固，形成緻密的金屬結構。</td>
+            <td>鈦合金、不銹鋼、鋁、鈷鉻合金</td>
+            <td>高強度高精度零件製作、醫療及航太級別零件</td>
+            <td>超貴、列印過程需要高溫能源消耗大、需要專業維護、列印產生危險的金屬粉末</td>
+            <td>航太零件、工業用具、醫療輔具</td>
+      </tr>
+      <!--生物3D列印機-->
+      <tr>
+          <td colspan=7; style="background:rgb(207, 207, 209);">生物3D列印機(Bioprinter)</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><a class="link" href="https://youtu.be/d8iJwctZZVk?si=-2xwS6LMDxAOJMWs" target="_blank">擠出式生物列印機</a>
+          <br><span style="font-size: 12px;">(Extrusion-based Bioprinter)</span></td>
+        <td>將含細胞的生物墨水擠出並層層堆疊</td>
+        <td>水凝膠、PCL、含細胞的生物墨水</td>
+        <td>列印多種細胞、用於組織的再生(皮膚、血管、軟骨)、具生物相容性</td>
+        <td>分辨率低(極細微結構無法製作)、列印環境需嚴格調控、細胞存活率受列印過程影響</td>
+        <td>再生應用、人工皮、血管支架、軟骨修復</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td><a class="link" href="https://youtu.be/QG5hz_60V3w?si=TuLLrAihyzL1u8J5" target="_blank">光固化式生物列印機</a>
+            <br><span style="font-size: 12px;">(Light-based Bioprinter)</span></td>
+            <td>使用UV光或藍光固化光敏材料，製作高精度組織</td>
+            <td>光敏水凝膠</td>
+            <td>分辨率高可製作細微組織、高精度軟組織</td>
+            <td>超貴、光固化過程會影響細胞存活率、材料選擇少</td>
+            <td>軟組織模型、血管結構、人工皮</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td><a class="link" href="https://youtu.be/g2ZTWHsO8l0?si=H8MeO420nIenZSMa" target="_blank">噴墨式生物列印機</a>
+            <br><span style="font-size: 12px;">(Inkjet Bioprinter)</span></td>
+            <td>噴墨技術，將細胞與材料逐層噴印</td>
+            <td>細胞懸浮液、水凝膠</td>
+            <td>高速列印、多層細胞列印</td>
+            <td>分辨率低(極細微結構無法製作)、細胞存活率受列印過程影響</td>
+            <td>晶片上器官、微型組織</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>微流體列印機<br><span style="font-size: 12px;">(Microfluidic Bioprinter)</span></td>
+            <td>利用精確控制液體流動列印細胞和材料</td>
+            <td>細胞懸浮液、水凝膠</td>
+            <td>可列印極複雜的血管化結構、材料選擇多</td>
+            <td>操作難度高、機台貴維護也貴</td>
+            <td>血管組織</td>
+      </tr>
+
+
+    </table>
+    <button class="button-lil" onclick="showPage('page0')" >返回目錄頁</button>
+    <button class="button-lil" onclick="showPage('pageend')" >結束</button>
+</div>
+
+<!-- Page END -->
+<div id="pageend" class="page">
+    <h2 style="color:#e9b8df">報告結束 感謝閱讀(灑花~)</h2>
+    <pre style="font-size: 18px; ">
+NSYSU醫學科技研究所
+M138030008蔡汶瑾
+2024/10/25 01:00
+    </pre>
+<button class="button-lil" onclick="showPage('pageintro')" >回到首頁</button>
+<button class="button-lil" onclick="window.close()">關閉視窗</button>
+</div>
+
+
+
+<!-- JavaScript 代码 -->
+<script>
+        function showPage(pageId) {
+            var pages = document.querySelectorAll('.page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove('active');
+            }
+            document.getElementById(pageId).classList.add('active');
+        }
+</script>
+
